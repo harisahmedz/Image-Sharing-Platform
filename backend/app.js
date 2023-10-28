@@ -45,6 +45,9 @@ app.use((error,req,res, next)=>{
     res.json({message:error.message || 'An Unknown Error Occured'});
 })
 
+app.get('/', (req, res)=>{
+    res.status(201).json({message:"Conneted to Backend"})
+})
 
 const url = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@nodetut.x13vgrj.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
 mongoose.connect(url)
